@@ -3,121 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrepTCF | TCF Canada Exam Engineering</title>
+    <title>PrepTCF | Engineering the Future of TCF Prep</title>
     <style>
         :root {
-            --brand-blue: #1A3A93; /* From Brand Assets */
-            --brand-red: #E6192E; /* From Brand Assets */
-            --brand-gradient: linear-gradient(135deg, #E6192E, #D6006E);
-            --bg-dark: #0B0F14;
-            --card-bg: #161B22;
-            --text-white: #FFFFFF;
-            --text-grey: #A0AEC0;
+            --brand-blue: #1A3A93;
+            --brand-red: #E6192E;
+            --bg-black: #0B0F14;
+            --card-dark: #161B22;
+            --text-main: #FFFFFF;
+            --text-dim: #A0AEC0;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text-white); line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
+        body { background: var(--bg-black); color: var(--text-main); line-height: 1.6; }
 
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 10%; background: rgba(11, 15, 20, 0.9); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #30363d; }
-        .logo { font-size: 1.5rem; font-weight: 800; }
+        nav { display: flex; justify-content: space-between; padding: 1.5rem 10%; border-bottom: 1px solid #30363d; background: rgba(11,15,20,0.9); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: -1px; }
         .logo span { color: var(--brand-red); }
 
-        header { padding: 80px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-        .hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
-        .hero-content p { font-size: 1.2rem; color: var(--text-grey); margin-bottom: 30px; }
-        .app-icon-img { width: 180px; border-radius: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        header { padding: 80px 10%; display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
+        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 24px; }
+        .hero-text p { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 40px; }
+        
+        .main-screenshot { width: 100%; border-radius: 24px; border: 6px solid #30363d; box-shadow: 0 20px 50px rgba(0,0,0,0.7); }
 
-        .section { padding: 60px 10%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { background: var(--card-bg); padding: 30px; border-radius: 16px; border: 1px solid #30363d; }
-        .card h3 { color: var(--brand-red); margin-bottom: 15px; }
+        .stats-bar { background: var(--card-dark); padding: 40px 10%; display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; border-top: 1px solid #30363d; border-bottom: 1px solid #30363d; }
+        .stat-item h2 { color: var(--brand-red); font-size: 2rem; }
+        .stat-item p { color: var(--text-dim); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        .tech-tag { display: inline-block; background: #1a202c; border: 1px solid var(--brand-blue); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; margin: 5px; }
+        .section { padding: 80px 10%; }
+        .engineering-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .code-box { background: #010409; padding: 25px; border-radius: 12px; border: 1px solid #30363d; font-family: 'Courier New', monospace; font-size: 0.85rem; color: #d1d5da; }
 
-        .code-block { background: #010409; padding: 20px; border-radius: 12px; font-family: monospace; font-size: 0.9rem; border: 1px solid #30363d; overflow-x: auto; }
-        .code-keyword { color: #ff7b72; }
-        .code-string { color: #a5d6ff; }
+        .tag { display: inline-block; padding: 4px 12px; border-radius: 20px; background: #1a202c; border: 1px solid var(--brand-blue); font-size: 0.75rem; margin-right: 8px; margin-bottom: 10px; }
+        .feature-img { width: 100%; border-radius: 12px; border: 1px solid #30363d; transition: transform 0.3s; }
+        .feature-img:hover { transform: scale(1.02); }
 
-        .cta-btn { background: var(--brand-gradient); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; }
+        .cta-button { background: var(--brand-red); color: white; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; }
 
-        @media (max-width: 850px) { header { grid-template-columns: 1fr; text-align: center; } }
+        @media (max-width: 900px) {
+            header, .engineering-grid { grid-template-columns: 1fr; text-align: center; }
+            .stats-bar { grid-template-columns: 1fr 1fr; gap: 20px; }
+        }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="logo">Prep<span>TCF</span></div>
-    <div class="tech-tag">Status: 5,247+ Questions Generated</div>
+    <div style="color: var(--text-dim); font-size: 0.8rem;">iOS Engineering Showcase</div>
 </nav>
 
 <header>
-    <div class="hero-content">
-        <h1>High-Performance <br>TCF Canada Prep</h1>
-        <p>A serverless iOS architecture designed to bridge the gap to Canadian Permanent Residency. Powered by Claude 3.5 and AWS.</p>
-        <a href="#" class="cta-btn">View on App Store (Coming Soon)</a>
+    <div class="hero-text">
+        <div class="tag" style="border-color: var(--brand-red); color: var(--brand-red);">BETA ACCESS MAY 2026</div>
+        <h1>The Data-Driven Path to PR.</h1>
+        <p>A high-performance iOS platform for TCF Canada preparation. Engineered for low-latency AI feedback and scalable content delivery.</p>
+        <a href="#" class="cta-button">Join the Waitlist</a>
     </div>
-    <div style="text-align: center;">
-        <img src="https://via.placeholder.com/180/1A3A93/FFFFFF?text=TCF" alt="PrepTCF Icon" class="app-icon-img">
+    <div class="mockup-container">
+        <img src="IMG_5390.PNG" alt="App Dashboard" class="main-screenshot">
     </div>
 </header>
 
+<div class="stats-bar">
+    <div class="stat-item"><h2>5,247</h2><p>Questions</p></div>
+    <div class="stat-item"><h2>A1-C2</h2><p>CEFR Levels</p></div>
+    <div class="stat-item"><h2>&lt; 0.5s</h2><p>API Latency</p></div>
+    <div class="stat-item"><h2>600+</h2><p>Audio Tracks</p></div>
+</div>
+
 <section class="section">
-    <h2 style="margin-bottom: 30px;">Core Curriculum (A1–C2)</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Reading</h3>
-            <p>1,100+ questions per level using Mistral-generated exam passages.</p>
+    <div class="engineering-grid">
+        <div>
+            <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Architecture First.</h2>
+            <p style="color: var(--text-dim); margin-bottom: 25px;">
+                Designed for high-concurrency, the backend utilizes <strong>AWS Lambda</strong> and <strong>DynamoDB</strong> with a single-table design. 
+                State management is handled via <strong>The Composable Architecture (TCA)</strong>.
+            </p>
+            <div class="tag">SwiftUI</div>
+            <div class="tag">AWS Lambda</div>
+            <div class="tag">Claude 3.5</div>
+            <div class="tag">ElevenLabs</div>
         </div>
-        <div class="card">
-            <h3>Listening</h3>
-            <p>600+ S3-hosted MP3s featuring ElevenLabs v3 high-fidelity audio.</p>
-        </div>
-        <div class="card">
-            <h3>Writing</h3>
-            <p>Stateless evaluation via Claude 3.5 Sonnet providing instant 0–20 NCLC scores.</p>
-        </div>
-        <div class="card">
-            <h3>Speaking</h3>
-            <p>Hybrid STT using OpenAI Whisper and local SFSpeechRecognizer.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section" style="background: #0d1117;">
-    <h2 style="margin-bottom: 30px;">Engineering Architecture</h2>
-    <div class="grid" style="grid-template-columns: 1.5fr 1fr;">
-        <div class="code-block">
-            <span class="code-keyword">struct</span> <span style="color: #d2a8ff;">TCFEngine</span> {
-                <span class="code-keyword">let</span> region = <span class="code-string">"ca-central-1"</span> <span style="color: #8b949e;">// Low latency for Toronto</span>
-                <span class="code-keyword">let</span> database = <span class="code-string">"DynamoDB Single-Table"</span>
-                <span class="code-keyword">let</span> evalModel = <span class="code-string">"claude-3.5-sonnet"</span>
-
-                <span class="code-keyword">func</span> <span style="color: #d2a8ff;">fetchQuestions</span>(level: CEFR) {
-                    <span style="color: #8b949e;">// O(1) lookup via PK: LEVEL#{level}#{section}</span>
-                }
+        <div class="code-box">
+            <span style="color: #ff7b72;">struct</span> <span style="color: #d2a8ff;">WritingEvaluator</span> {<br>
+            &nbsp;&nbsp;<span style="color: #ff7b72;">let</span> model = <span style="color: #a5d6ff;">"claude-3.5-sonnet"</span><br>
+            &nbsp;&nbsp;<span style="color: #ff7b72;">let</span> region = <span style="color: #a5d6ff;">"ca-central-1"</span><br>
+            <br>
+            &nbsp;&nbsp;<span style="color: #8b949e;">// Returns NCLC score 0-20</span><br>
+            &nbsp;&nbsp;<span style="color: #ff7b72;">func</span> <span style="color: #d2a8ff;">evaluate</span>(text: String) -> Score { ... }<br>
             }
         </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top: 0;">
+    <h2 style="margin-bottom: 40px; text-align: center;">Functional Modules</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
         <div>
-            <h3 style="color: var(--text-white);">Scalable AWS Backend</h3>
-            <p style="color: var(--text-grey); font-size: 0.95rem; margin-bottom: 20px;">
-                The backend is built on a serverless architecture using **AWS Lambda** and **DynamoDB**.
-                By utilizing a single-table design, we achieve O(1) lookups for question pools.
-            </p>
-            <div class="tech-tag">SwiftUI (TCA)</div>
-            <div class="tech-tag">AWS Lambda</div>
-            <div class="tech-tag">Claude 3.5</div>
-            <div class="tech-tag">ElevenLabs</div>
-            <div class="tech-tag">DynamoDB</div>
+            <img src="IMG_5391.PNG" class="feature-img" alt="Practice Hub">
+            <p style="text-align: center; margin-top: 10px; font-size: 0.9rem; color: var(--text-dim);">Practice Hub</p>
+        </div>
+        <div>
+            <img src="IMG_5393.PNG" class="feature-img" alt="Analytics">
+            <p style="text-align: center; margin-top: 10px; font-size: 0.9rem; color: var(--text-dim);">Detailed Analytics</p>
+        </div>
+        <div>
+            <img src="IMG_5399.PNG" class="feature-img" alt="Exam Runner">
+            <p style="text-align: center; margin-top: 10px; font-size: 0.9rem; color: var(--text-dim);">Modern Exam Runner</p>
         </div>
     </div>
 </section>
 
-<footer class="section" style="text-align: center; border-top: 1px solid #30363d;">
-    <p>Developed by an iOS Engineer specializing in AI-integrated mobile solutions.</p>
-    <div style="margin-top: 20px;">
-        <a href="#" style="color: var(--brand-red); text-decoration: none; margin: 0 15px;">LinkedIn</a>
-        <a href="#" style="color: var(--brand-red); text-decoration: none; margin: 0 15px;">Upwork</a>
+<footer class="section" style="text-align: center; border-top: 1px solid #30363d; background: #010409;">
+    <p style="color: var(--text-dim); margin-bottom: 20px;">Relocating to Ottawa, May 2026</p>
+    <div style="margin-bottom: 30px;">
+        <a href="#" style="color: var(--brand-red); text-decoration: none; margin: 0 15px; font-weight: 600;">LinkedIn</a>
+        <a href="#" style="color: var(--brand-red); text-decoration: none; margin: 0 15px; font-weight: 600;">Upwork Portfolio</a>
     </div>
+    <p style="font-size: 0.7rem; opacity: 0.4;">© 2026 PrepTCF. All rights reserved.</p>
 </footer>
 
 </body>
